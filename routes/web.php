@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('pdf-snappy', [PDFSnappyController::class, 'index']);
+Route::get('show', [PDFSnappyController::class, 'show']);

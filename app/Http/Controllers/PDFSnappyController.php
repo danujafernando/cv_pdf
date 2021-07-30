@@ -18,6 +18,10 @@ class PDFSnappyController extends Controller
             $data = $this->createSVGs();
             $data['primary_color'] = $primary_color;
             $pdf = PDF::loadView('snappy.pdf', $data);
+            $pdf->setOption('margin-top',0);
+            $pdf->setOption('margin-bottom',0);
+            $pdf->setOption('margin-left',0);
+            $pdf->setOption('margin-right', 0);
             $pdf->setTemporaryFolder(storage_path('snappy'));
             $name = "cv.pdf";
             return $pdf->stream($name);
@@ -40,5 +44,24 @@ class PDFSnappyController extends Controller
             $files[$key] = $file_name;
         }
         return $files;
+    }
+
+    public function show(){
+        $data = $this->createSVGs();
+        //return view('side-bar', $data);
+        $pdf = PDF::loadView('side-bar', $data);
+            $pdf->setOptions([
+                'margin-top' => 0,
+                'margin-bottom' => 0,
+                'margin-left' => 0,
+                'margin-right' => 0,
+                'page-size' => 'A4',
+                'page-height' => '11.7in'
+            ]);
+            $pdf->setTemporaryFolder(storage_path('snappy'));
+            //$paper = $pdf->getPaper();
+            //dd($paper);
+            $name = "cv.pdf";
+            return $pdf->stream($name);
     }
 }

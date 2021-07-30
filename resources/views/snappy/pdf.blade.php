@@ -14,14 +14,6 @@
                 margin: 0cm 0cm;
             }
 
-            /** Define now the real margins of every page in the PDF **/
-            body {
-                margin-top: 2cm;
-                margin-left: 2cm;
-                margin-right: 2cm;
-                margin-bottom: 2cm;
-            }
-
             /** Define the header rules **/
             header {
                 position: fixed;
@@ -49,8 +41,6 @@
                 text-align: center;
                 
             }
-
-            * { font-family: DejaVu Sans, sans-serif; }
 			html {
 				line-height: 1.15;
 				margin: 0;
@@ -62,9 +52,9 @@
                 text-align: left;
                 background-color: #fff;
                 font-size: 10px;
-                margin-left: 36pt;
-                margin-right: 36pt;
-                margin-top: 1px !important;
+                margin-left: 0pt;
+                margin-right: 0pt;
+                margin-top: 0px !important;
             }
             h4 {
                 margin-top: 0;
@@ -97,7 +87,7 @@
             }
             .table-top {
                 width: 100%;
-                margin-bottom: 0;
+                margin-top: 36pt;
                 color: #212529;
             }
             .table {
@@ -177,12 +167,80 @@
             .page-break {
                 page-break-after: always;
             }
-
+            .main-section{
+                clear:both; 
+                position:relative;
+                height: 100vh;
+                margin: auto;
+            }
+            .left-section{
+                position:absolute; 
+                padding-right: 38px;
+                padding-left: 38px;
+                float: left;
+                width: 553px;
+            }
+            .right-section{
+                left: 0 !important;
+                width: 240px;
+                padding-bottom: 19px;
+                padding-top: 38px;
+                min-height: 297mm;
+                float: right;
+            }
+            .right-side-text{
+                font-size: 16px;
+                color:white
+            }
+            .bg-color{
+                background: #000;
+            }
+            .top-padding{
+                padding-top: 42px !important;
+            }
+            .right-size-icon{
+                width: 25px;
+                height: 25px;
+            }
+            
+            .right-side-first-padding{
+                padding-left: 10px !important; 
+                padding-right: 5px !important;
+            }
+            .right-side-second-padding{
+                padding-left: 0px !important; 
+                padding-right: 20px !important;
+            }
     </style>
 </head>
 <body>
-    <table class="table" class="table-top" border="0" cellpadding="0" cellspacing="0" >
-
-    </table>
+    <div class="main-section" style="page-break-after:auto;">
+        <div class="left-section">
+            LEFT COLUMN
+        </div>
+        <div class="right-section">
+            <table class="table-top" border="0" cellpadding="0" cellspacing="0" >
+                <tr style="padding-top: 10px">
+                    <td class="bg-color right-side-first-padding top-padding"><img src="{{ asset($location_marker) }}" class="right-size-icon" /></td>
+                    <td class="bg-color right-side-text right-side-second-padding top-padding">No 2, Fonseka rd, Laxshapathiya, <br>Moratuwa, <br>Sri Lanka</td>
+                </tr>
+                <tr >
+                    <td class="bg-color right-side-first-padding"><img src="{{ asset($phone) }}" class="right-size-icon" /></td>
+                    <td class="bg-color right-side-text right-side-second-padding">(+94)011 2 624 042</td>
+                </tr>
+                <tr >
+                    <td class="bg-color right-side-first-padding"><img src="{{ asset($device_mobile) }}" class="right-size-icon" /></td>
+                     <td class="bg-color right-side-text right-side-second-padding">(+94)071 1 552 445</td>
+                </tr>
+                <tr >
+                    <td class="bg-color right-side-first-padding"><img src="{{ asset($mail) }}" class="right-size-icon" /></td>
+                     <td class="bg-color right-side-text right-side-second-padding">ldashanfernando@gmail.com</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--
+        
+    -->
 </body>
 </html>
